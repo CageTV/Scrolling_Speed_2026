@@ -18,9 +18,9 @@ Needs SKSE64, Address Library for SKSE Plugins, and (for the settings page) SKSE
 ## Credits and licence
 **Based on [Scrolling Speed - adjust running speed with mouse wheel](https://www.nexusmods.com/skyrim/mods/65570) by SirArindel (Arindel).**
 The original author's permissions are: *"You are free to use the resources in this mod as long as you share your mod with the same permissions."*
-This mod is shared with the same permissions: you are free to use anything in it, as long as you share your own mod with the same permissions (the MIT licence in LICENSE.txt says the same and more; Arindel's credit has to stay).
+This mod is shared with the same permissions: you are free to use anything in it, as long as you share your own mod with the same permissions (the GNU General Public License v3 in LICENSE.txt gives everyone the same freedoms; Arindel's credit has to stay).
 
 Why a new plugin instead of updating Scrolling Speed NG: NG no longer loads on Skyrim 1.7.x, its author is no longer active and no source is available, so it could not be updated or forked. The original has open permissions, so this plugin is built on its idea.
 
 Scrolling Speed 2026 is a new SKSE plugin written from scratch (no ESP, no Papyrus, no MCM) that keeps the original's idea: wheel speed levels for the player and the horse, modifier key to zoom. It contains no code or assets from Scrolling Speed NG, which is a separate, closed-licence mod.
-Built with alandtse's CommonLibSSE-NG; bundles the SKSE Menu Framework header.
+Built with alandtse's CommonLibSSE-NG (GPL-3.0 with a modding exception) and bundles the SKSE Menu Framework header (GPL-3.0), so the whole plugin is licensed under the **GNU General Public License, version 3 or later** (LICENSE.txt, NOTICE.txt). The source of every release is this repository at the release tag.

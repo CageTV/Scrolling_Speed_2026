@@ -2,7 +2,7 @@
  * Scrolling Speed 2026
  * Copyright (c) 2026 CageTV
  *
- * Released under the MIT License; see LICENSE.txt.
+ * Released under the GNU General Public License, version 3 or (at your option) any later version; see LICENSE.txt.
  */
 #include "PCH.h"
 #include "Config.h"
@@ -70,7 +70,7 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
 	SetupLog();
-	SKSE::log::info("ScrollingSpeed2026 1.0.0, game {}", REL::Module::get().version().string());
+	SKSE::log::info("ScrollingSpeed2026 1.0.1, game {}", REL::Module::get().version().string());
 	Speed::Init();
 	SKSE::GetMessagingInterface()->RegisterListener(OnMessage);
 	return true;

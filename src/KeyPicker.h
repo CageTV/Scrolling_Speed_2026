@@ -2,7 +2,7 @@
  * Key picker widget for SKSE Menu Framework pages (Scrolling Speed 2026, Beast Harmony)
  * Copyright (c) 2026 CageTV
  *
- * Released under the MIT License; see LICENSE.txt.
+ * Released under the GNU General Public License, version 3 or (at your option) any later version; see LICENSE.txt.
  *
  * Keys are DirectInput scan codes (what Skyrim and these plugins' config files use). "Press a key" waits for the next keyboard key
  * (Esc cancels); a key the game's own controls already use is flagged by name. Keys another MOD uses cannot be known.

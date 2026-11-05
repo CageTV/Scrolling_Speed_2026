@@ -1,7 +1,19 @@
 Scrolling Speed 2026
 
+Source code: https://github.com/CageTV/Scrolling_Speed_2026 (the tag matching this release is named in the release notes).
+
 Based on "Scrolling Speed - adjust running speed with mouse wheel" (Nexus Skyrim mod 65570) by SirArindel (Arindel).
 Original permissions: "You are free to use the resources in this mod as long as you share your mod with the same permissions."
-This mod is shared with the same permissions (MIT licence, LICENSE.txt). Keep this credit when you reuse it.
+This mod is shared with the same permissions (the GNU General Public License gives everyone the same freedoms). Keep this credit when you reuse it.
 
 Copyright (c) 2026 CageTV for the new SKSE plugin.
+
+ScrollingSpeed2026.dll is built with alandtse's CommonLibSSE-NG (GNU General Public License v3.0 with a modding exception) and bundles
+the SKSE Menu Framework header (GPL-3.0), so it is distributed under the GNU General Public License, version 3 or (at your option)
+any later version. The full, unmodified GPL-3.0 text is in LICENSE.txt.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

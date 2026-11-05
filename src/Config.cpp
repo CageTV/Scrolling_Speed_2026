@@ -2,7 +2,7 @@
  * Scrolling Speed 2026
  * Copyright (c) 2026 CageTV
  *
- * Released under the MIT License; see LICENSE.txt.
+ * Released under the GNU General Public License, version 3 or (at your option) any later version; see LICENSE.txt.
  */
 #include "PCH.h"
 #include "Config.h"
