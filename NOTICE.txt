@@ -1,0 +1,7 @@
+Scrolling Speed 2026
+
+Based on "Scrolling Speed - adjust running speed with mouse wheel" (Nexus Skyrim mod 65570) by SirArindel (Arindel).
+Original permissions: "You are free to use the resources in this mod as long as you share your mod with the same permissions."
+This mod is shared with the same permissions (MIT licence, LICENSE.txt). Keep this credit when you reuse it.
+
+Copyright (c) 2026 CageTV for the new SKSE plugin.

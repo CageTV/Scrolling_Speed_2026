@@ -10,5 +10,9 @@ Mouse-wheel walking / running / riding speed for Skyrim SE/AE (1.7.x included). 
 * Before uninstalling press "Reset and remove all modifiers" in the menu.
 
 ## Credits and licence
-MIT (LICENSE.txt). Idea and behaviour descend from **Scrolling Speed** by Arindel (Nexus 65570, open permissions) and the ideas of Scrolling Speed NG; this plugin is a clean-room rewrite and contains no code or assets from the closed-licence NG release.
+**Based on [Scrolling Speed - adjust running speed with mouse wheel](https://www.nexusmods.com/skyrim/mods/65570) by SirArindel (Arindel).**
+The original author's permissions are: *"You are free to use the resources in this mod as long as you share your mod with the same permissions."*
+This mod is shared with the same permissions: you are free to use anything in it, as long as you share your own mod with the same permissions (the MIT licence in LICENSE.txt says the same and more; Arindel's credit has to stay).
+
+Scrolling Speed 2026 is a new SKSE plugin written from scratch (no ESP, no Papyrus, no MCM) that keeps the original's idea: wheel speed levels for the player and the horse, modifier key to zoom. It contains no code or assets from Scrolling Speed NG, which is a separate, closed-licence mod.
 Built with alandtse's CommonLibSSE-NG; bundles the SKSE Menu Framework header.
