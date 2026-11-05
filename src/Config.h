@@ -15,6 +15,9 @@ namespace Config
 	{
 		bool  enabled = true;
 		int   modifierKey = 42;           // DirectInput scan code (42 left shift, 29 left ctrl, 56 left alt); 0 = no modifier
+	int   zoomKey = 0;                // optional: while this key is held the wheel always zooms the camera (0 = none)
+	int   keyFaster = 0;              // optional keys for faster / slower (0 = none; the wheel always works)
+	int   keySlower = 0;
 		bool  wheelChangesSpeed = true;   // true: wheel = speed, modifier + wheel = zoom.  false: wheel = zoom, modifier + wheel = speed
 		int   steps = 5;                  // number of speed levels (2..20)
 		float slowestPercent = 18.0f;     // speed at level 1, in percent of normal (level `steps` = 100%)

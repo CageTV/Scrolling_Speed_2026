@@ -31,6 +31,9 @@ namespace Config
 			const auto j = json::parse(f, nullptr, true, true);
 			cfg.enabled = j.value("enabled", cfg.enabled);
 			cfg.modifierKey = std::clamp(j.value("modifierKey", cfg.modifierKey), 0, 255);
+			cfg.zoomKey = std::clamp(j.value("zoomKey", cfg.zoomKey), 0, 255);
+			cfg.keyFaster = std::clamp(j.value("keyFaster", cfg.keyFaster), 0, 255);
+			cfg.keySlower = std::clamp(j.value("keySlower", cfg.keySlower), 0, 255);
 			cfg.wheelChangesSpeed = j.value("wheelChangesSpeed", cfg.wheelChangesSpeed);
 			cfg.steps = std::clamp(j.value("steps", cfg.steps), 2, 20);
 			cfg.slowestPercent = std::clamp(j.value("slowestPercent", cfg.slowestPercent), 5.0f, 95.0f);
@@ -49,9 +52,9 @@ namespace Config
 	{
 		std::error_code ec;
 		std::filesystem::create_directories(kFile.parent_path(), ec);
-		json j = { { "_help", { { "modifierKey", "DirectInput scan code: 42 left shift, 29 left ctrl, 56 left alt, 0 = none" }, { "wheelChangesSpeed", "true: wheel = speed, modifier+wheel = zoom; false: wheel = zoom, modifier+wheel = speed" },
+		json j = { { "_help", { { "modifierKey", "DirectInput scan code: 42 left shift, 29 left ctrl, 56 left alt, 0 = none" }, { "zoomKey", "optional key: while held the wheel zooms the camera (0 = none)" }, { "keyFaster / keySlower", "optional keys that change the speed level like the wheel (0 = none)" }, { "wheelChangesSpeed", "true: wheel = speed, modifier+wheel = zoom; false: wheel = zoom, modifier+wheel = speed" },
 					{ "slowestPercent", "speed of level 1 in percent of normal; the top level is 100" }, { "startLevel", "0 = fastest" }, { "blockedMenus", "the wheel is left alone while one of these menus is open" } } },
-			{ "enabled", cfg.enabled }, { "modifierKey", cfg.modifierKey }, { "wheelChangesSpeed", cfg.wheelChangesSpeed }, { "steps", cfg.steps }, { "slowestPercent", cfg.slowestPercent }, { "startLevel", cfg.startLevel },
+			{ "enabled", cfg.enabled }, { "modifierKey", cfg.modifierKey }, { "zoomKey", cfg.zoomKey }, { "keyFaster", cfg.keyFaster }, { "keySlower", cfg.keySlower }, { "wheelChangesSpeed", cfg.wheelChangesSpeed }, { "steps", cfg.steps }, { "slowestPercent", cfg.slowestPercent }, { "startLevel", cfg.startLevel },
 			{ "affectMounts", cfg.affectMounts }, { "notify", cfg.notify }, { "blockedMenus", cfg.blockedMenus } };
 		std::ofstream(kFile) << j.dump(2);
 	}

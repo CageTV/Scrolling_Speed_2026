@@ -10,7 +10,7 @@
 #include "Speed.h"
 #include "Wheel.h"
 
-#include "SKSEMenuFramework.h"
+#include "KeyPicker.h"
 
 namespace Menu
 {
@@ -32,10 +32,20 @@ namespace Menu
 			if (ImGuiMCP::Checkbox("Wheel changes speed (modifier + wheel = zoom)##ss_inv", &c.wheelChangesSpeed)) {
 				changed = true;
 			}
-			ImGuiMCP::Text("Modifier key (DirectInput scan code: 42 left shift, 29 left ctrl, 56 left alt, 0 none)");
-			if (ImGuiMCP::SliderInt("##ss_key", &c.modifierKey, 0, 255)) {
+			ImGuiMCP::SeparatorText("Keys");
+			if (KeyPicker::Field("ss_mod", "Modifier key (flips wheel = speed / zoom):", &c.modifierKey)) {
 				changed = true;
 			}
+			if (KeyPicker::Field("ss_zoomkey", "Zoom key (while held the wheel always zooms):", &c.zoomKey)) {
+				changed = true;
+			}
+			if (KeyPicker::Field("ss_faster", "Faster key (optional, the wheel always works):", &c.keyFaster)) {
+				changed = true;
+			}
+			if (KeyPicker::Field("ss_slower", "Slower key (optional):", &c.keySlower)) {
+				changed = true;
+			}
+			ImGuiMCP::Separator();
 			if (ImGuiMCP::SliderInt("Speed levels##ss_steps", &c.steps, 2, 20)) {
 				c.startLevel = std::clamp(c.startLevel, 0, c.steps);
 				changed = true;
@@ -52,7 +62,7 @@ namespace Menu
 				changed = true;
 				Speed::Refresh();
 			}
-			if (ImGuiMCP::Checkbox("Show a note on every change##ss_note", &c.notify)) {
+			if (ImGuiMCP::Checkbox("Show a note when the speed level changes##ss_note", &c.notify)) {
 				changed = true;
 			}
 
@@ -82,6 +92,7 @@ namespace Menu
 			SKSE::log::info("menu: SKSE Menu Framework not installed, settings stay in ScrollingSpeed2026.json");
 			return;
 		}
+		KeyPicker::Install();
 		SKSEMenuFramework::SetSection("Scrolling Speed");
 		SKSEMenuFramework::AddSectionItem("Settings", Render);
 		SKSE::log::info("menu: settings page registered");

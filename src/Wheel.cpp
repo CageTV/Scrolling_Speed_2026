@@ -54,6 +54,9 @@ namespace Wheel
 			if (!c.enabled) {
 				return false;
 			}
+			if (c.zoomKey > 0 && Keys::ModifierHeld(c.zoomKey)) {
+				return false;  // the optional zoom key: the wheel zooms, whatever the other modifier says
+			}
 			const bool held = c.modifierKey > 0 && Keys::ModifierHeld(c.modifierKey);
 			return c.wheelChangesSpeed ? !held : held;
 		}
@@ -71,6 +74,23 @@ namespace Wheel
 						return true;
 					}
 				}
+				// any menu that shows the cursor or pauses the game (dialogue, containers, books, mod menus ...) owns the wheel
+				for (auto& [name, entry] : ui->menuMap) {
+					if (!entry.menu || !ui->IsMenuOpen(name.c_str())) {
+						continue;
+					}
+					const std::string_view n = name.c_str();
+					if (n == "Cursor Menu" || n == "HUD Menu") {
+						continue;
+					}
+					if (entry.menu->UsesCursor() || entry.menu->PausesGame()) {
+						return true;
+					}
+				}
+			}
+			// a conversation is running (a dialogue replacer or camera mod may hide the standard menu)
+			if (auto* topics = RE::MenuTopicManager::GetSingleton(); topics && topics->speaker.get()) {
+				return true;
 			}
 			auto* cam = RE::PlayerCamera::GetSingleton();
 			if (cam && cam->IsInFreeCameraMode()) {  // TFCam's free camera uses the wheel itself
@@ -94,6 +114,16 @@ namespace Wheel
 					}
 					for (auto* e = *a_events; e; e = e->next) {
 						const auto* b = e->AsButtonEvent();
+						if (b && b->GetDevice() == RE::INPUT_DEVICE::kKeyboard && b->IsDown() && !WheelIsSomeoneElses()) {
+							const auto& c = Config::Get();
+							const int   code = static_cast<int>(b->GetIDCode());
+							if (c.enabled && c.keyFaster > 0 && code == c.keyFaster) {
+								Speed::ChangeLevel(+1);
+							} else if (c.enabled && c.keySlower > 0 && code == c.keySlower) {
+								Speed::ChangeLevel(-1);
+							}
+							continue;
+						}
 						if (!b || b->GetDevice() != RE::INPUT_DEVICE::kMouse || b->Value() <= 0.0f) {
 							continue;
 						}

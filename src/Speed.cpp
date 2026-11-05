@@ -224,10 +224,10 @@ namespace Speed
 		level = std::clamp(level + a_dir, 1, Top());
 		if (level != before) {
 			Refresh();
-		}
-		if (Config::Get().notify) {
-			const auto text = std::format("Speed {} / {} ({:.0f}%)", level, Top(), CurrentPercent());
-			RE::SendHUDMessage::ShowHUDMessage(text.c_str(), nullptr, false);
+			if (Config::Get().notify) {  // only when the level really changed, and a queued note is replaced instead of stacking up
+				const auto text = std::format("Speed {} / {} ({:.0f}%)", level, Top(), CurrentPercent());
+				RE::SendHUDMessage::ShowHUDMessage(text.c_str(), nullptr, true);
+			}
 		}
 	}
 
